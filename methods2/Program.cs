@@ -1,4 +1,5 @@
-﻿using System.Security.Cryptography.X509Certificates;
+﻿using System.Numerics;
+using System.Security.Cryptography.X509Certificates;
 
 namespace MyCompany.MyProduct.System
 {
@@ -6,32 +7,50 @@ namespace MyCompany.MyProduct.System
     {
         static void Main(String[] args)
         {
-            Console.Write("Capacity of List: ");
+            Console.Write("How many numbers?: ");
             int range = Int32.Parse(Console.ReadLine());
 
+            //first list to get the numbers
             List<int> numbers = new List<int>(range);
 
-            for (int i = 0; i < range; i++)
+            //Second list to store the values
+            List<int> values = new List<int>();
+
+            /*  Iterates through list range amount of times to get
+                the amount of numbers in the list
+            */
+            for (int i = 1; i < (range + 1); i++)
             {
                 numbers.Add(i);
+                
             }
+            /*  Going through the list and replacing the spots for the numbers
+            */
+            foreach (int i in numbers)
+            {
+                Console.Write($"Number {i}: ");
+                var value = Int32.Parse(Console.ReadLine());
+                values.Add(value);
+
+            }
+
+            //Enumerating the sum of all the values
+            var sum = values.Sum();
 
             
 
-            foreach (int number in numbers)
-            {
-                int count = 1;
-                Console.WriteLine($"Number {count}: ");
-                Int32.Parse(Console.ReadLine());
-                numbers.Add(number);
-                
-                count++;
-                
-            }
+            
 
-            Console.WriteLine($"Capacity: {numbers.Capacity}");
+            
+
+            Console.WriteLine(sum);
+            
             
         }
+
+        /*Function for adding the numbers
+         */
+        
     }
 
     
