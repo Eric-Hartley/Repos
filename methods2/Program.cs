@@ -1,57 +1,46 @@
-﻿using System.Numerics;
+﻿using System.Diagnostics.CodeAnalysis;
+using System.Numerics;
 using System.Security.Cryptography.X509Certificates;
 
 namespace MyCompany.MyProduct.System
 {
     class Program
     {
-        static void Main(String[] args)
+        public static void Main(String[] args)
         {
-            Console.Write("How many numbers?: ");
-            int range = Int32.Parse(Console.ReadLine());
+            // enter the amount of numbers here
+            int num1;
+            int num2;
+            int num3;
+            int num4;
+            int num5;
 
-            //first list to get the numbers
-            List<int> numbers = new List<int>(range);
+            // Operation and choosing which numbers
+            var result = Add(10, 20);
+            var product = Multiply(10, 20);
+            var difference = Subtract(10, 20);
+            var quotient = Divide(20, 10);
 
-            //Second list to store the values
-            List<int> values = new List<int>();
 
-            /*  Iterates through list range amount of times to get
-                the amount of numbers in the list
-            */
-            for (int i = 1; i < (range + 1); i++)
-            {
-                numbers.Add(i);
-                
-            }
-            /*  Going through the list and replacing the spots for the numbers
-            */
-            foreach (int i in numbers)
-            {
-                Console.Write($"Number {i}: ");
-                var value = Int32.Parse(Console.ReadLine());
-                values.Add(value);
-
-            }
-
-            //Enumerating the sum of all the values
-            var sum = values.Sum();
-
-            
-
-            
-
-            
-
-            Console.WriteLine(sum);
-            
-            
+            // Printing the final result of whichever
+            Console.WriteLine($"Quotient: {quotient}");
+        }
+        public static int Add(int num1, int num2)
+        { 
+            return num1 + num2; 
+        }
+        public static int Multiply(int num1, int num2)
+        {
+            return num1 * num2;
+        }
+        public static int Subtract(int num1, int num2)
+        {
+            return num1 - num2;
+        }
+        public static int Divide(int num1, int num2)
+        {
+            return num1 / num2;
         }
 
-        /*Function for adding the numbers
-         */
-        
     }
-
-    
 }
